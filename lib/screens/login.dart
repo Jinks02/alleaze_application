@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../view_models/log_in_view_model.dart';
+import 'home_view.dart';
 import 'get_started_view.dart';
 
 class LoginPage extends StatefulWidget {
@@ -172,11 +173,9 @@ class _LoginPageState extends State<LoginPage> {
                                     backgroundColor: Colors.orange,
                                     content: Text("log in success")));
                             Navigator.push(
-                              (context),
-                              MaterialPageRoute(
-                                builder: (context) => const HomeScreen(),
-                              ),
-                            );
+                                (context),
+                                MaterialPageRoute(
+                                    builder: (context) => HomeScreen()));
                           } else {
                             ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(

@@ -7,6 +7,7 @@ import 'package:otp_timer_button/otp_timer_button.dart';
 import 'package:provider/provider.dart';
 
 import '../view_models/otp_auth_view_model.dart';
+import 'home_view.dart';
 
 class OtpCodeScreen extends StatefulWidget {
   final String countryCode;
@@ -159,11 +160,10 @@ class _OtpCodeScreenState extends State<OtpCodeScreen> {
                       backgroundColor: Colors.orange,
                       content: Text("otp verification success")));
                   Navigator.push(
-                    (context),
-                    MaterialPageRoute(
-                      builder: (context) => const HomeScreen(),
-                    ),
-                  );
+                      (context),
+                      MaterialPageRoute(
+                          builder: (context) => HomeScreen()));
+
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                       backgroundColor: Colors.orange,

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 import 'get_started_view.dart';
+import 'home_view.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -15,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
   late VideoPlayerController _controller;
   bool _isVideoInitialized = false;
 
-  final auth = FirebaseAuth.instance;
+  //final auth = FirebaseAuth.instance;
 
   @override
   void initState() {
@@ -29,35 +30,43 @@ class _SplashScreenState extends State<SplashScreen> {
             _controller.play();
           });
 
-    checkUserLogin();
+    _controller.addListener(() {
+      if (_controller.value.position == _controller.value.duration) {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (BuildContext context) => HomeScreen(),
+          ),
+        );
+      }
+    });
   }
 
-  void checkUserLogin() {
-    if (auth.currentUser == null) {
-      log("user does not exists");
-      _controller.addListener(() {
-        if (_controller.value.position == _controller.value.duration) {
-          Navigator.of(context).pushReplacement(
-            MaterialPageRoute(
-              builder: (BuildContext context) => GetStarted(),
-            ),
-          );
-        }
-      });
-    } else {
-      log("user exists");
-      log(auth.currentUser?.email.toString() ?? "no email");
-      _controller.addListener(() {
-        if (_controller.value.position == _controller.value.duration) {
-          Navigator.of(context).pushReplacement(
-            MaterialPageRoute(
-              builder: (BuildContext context) => const HomeScreen(),
-            ),
-          );
-        }
-      });
-    }
-  }
+  // void checkUserLogin() {
+  //   if (auth.currentUser == null) {
+  //     log("user does not exists");
+  //     _controller.addListener(() {
+  //       if (_controller.value.position == _controller.value.duration) {
+  //         Navigator.of(context).pushReplacement(
+  //           MaterialPageRoute(
+  //             builder: (BuildContext context) => HomeScreen(), //change to GetStarted() after testing
+  //           ),
+  //         );
+  //       }
+  //     });
+  //   } else {
+  //     log("user exists");
+  //     log(auth.currentUser?.email.toString() ?? "no email");
+  //     _controller.addListener(() {
+  //       if (_controller.value.position == _controller.value.duration) {
+  //         Navigator.of(context).pushReplacement(
+  //           MaterialPageRoute(
+  //             builder: (BuildContext context) => const HomeScreen(),
+  //           ),
+  //         );
+  //       }
+  //     });
+  //   }
+  // }
 
   @override
   void dispose() {
@@ -103,7 +112,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     child: VideoPlayer(_controller),
                   ),
                 Container(
-                  transform: Matrix4.translationValues(0.0, -50.0, 0.0),
+                  transform: Matrix4.translationValues(0.0, 0.0, 0.0),
                   child: const Text(
                     "Skip the queue, pay with ease!",
                     style: TextStyle(

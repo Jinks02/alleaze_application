@@ -6,6 +6,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 
 import '../view_models/sign_in_with_google_view_model.dart';
+import 'home_view.dart';
 import 'login.dart';
 import 'otp_phone_number_view.dart';
 
@@ -135,12 +136,11 @@ class GetStarted extends StatelessWidget {
                                                           content: Text(
                                                               "google sign in success")));
                                                   Navigator.push(
-                                                    (context),
-                                                    MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          const HomeScreen(),
-                                                    ),
-                                                  );
+                                                      (context),
+                                                      MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              HomeScreen()));
+
                                                 } else {
                                                   ScaffoldMessenger.of(context)
                                                       .showSnackBar(const SnackBar(
