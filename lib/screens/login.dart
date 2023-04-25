@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../view_models/log_in_view_model.dart';
+import 'get_started_view.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -171,14 +172,22 @@ class _LoginPageState extends State<LoginPage> {
                                     backgroundColor: Colors.orange,
                                     content: Text("log in success")));
                             Navigator.push(
-                                (context),
-                                MaterialPageRoute(
-                                    builder: (context) => const HomeScreen()));
+                              (context),
+                              MaterialPageRoute(
+                                builder: (context) => const HomeScreen(),
+                              ),
+                            );
                           } else {
                             ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                     backgroundColor: Colors.orange,
                                     content: Text("log in failed")));
+                            Navigator.push(
+                              (context),
+                              MaterialPageRoute(
+                                builder: (context) => GetStarted(),
+                              ),
+                            );
                           }
                         }
                       },

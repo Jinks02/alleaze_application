@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 
 import '../view_models/sign_up_view_model.dart';
+import 'get_started_view.dart';
 import 'login.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -221,15 +222,22 @@ class _SignUpPageState extends State<SignUpPage> {
                                       backgroundColor: Colors.orange,
                                       content: Text("Sign up success")));
                               Navigator.push(
-                                  (context),
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const HomeScreen()));
+                                (context),
+                                MaterialPageRoute(
+                                  builder: (context) => const HomeScreen(),
+                                ),
+                              );
                             } else {
                               ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(
                                       backgroundColor: Colors.orange,
                                       content: Text("Sign up failed")));
+                              Navigator.push(
+                                (context),
+                                MaterialPageRoute(
+                                  builder: (context) => GetStarted(),
+                                ),
+                              );
                             }
                           }
                         },
