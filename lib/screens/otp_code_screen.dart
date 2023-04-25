@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../view_models/otp_auth_view_model.dart';
+import 'home_view.dart';
 
 class OtpCodeScreen extends StatefulWidget {
   const OtpCodeScreen({Key? key}) : super(key: key);
@@ -146,7 +147,7 @@ class _OtpCodeScreenState extends State<OtpCodeScreen> {
                   Navigator.push(
                       (context),
                       MaterialPageRoute(
-                          builder: (context) => const HomeScreen()));
+                          builder: (context) => HomeScreen()));
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(content: Text("otp auth failed")));

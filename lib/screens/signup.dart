@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 
 import '../view_models/sign_up_view_model.dart';
+import 'home_view.dart';
 import 'login.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -224,7 +225,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                   (context),
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          const HomeScreen()));
+                                          HomeScreen()));
                             } else {
                               ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(
