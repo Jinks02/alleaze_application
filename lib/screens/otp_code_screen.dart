@@ -1,13 +1,19 @@
 import 'dart:developer';
 
+import 'package:alleaze_application/screens/get_started_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:otp_timer_button/otp_timer_button.dart';
 import 'package:provider/provider.dart';
 
 import '../view_models/otp_auth_view_model.dart';
 
 class OtpCodeScreen extends StatefulWidget {
-  const OtpCodeScreen({Key? key}) : super(key: key);
+  final String countryCode;
+  final String phoneNumber;
+
+  const OtpCodeScreen(
+      {super.key, required this.countryCode, required this.phoneNumber});
 
   @override
   State<OtpCodeScreen> createState() => _OtpCodeScreenState();
@@ -17,6 +23,8 @@ class _OtpCodeScreenState extends State<OtpCodeScreen> {
   final _focusNode = FocusNode();
   final _otpController = TextEditingController();
   // String otpCode = '';
+  final OtpTimerButtonController _otpTimerBtnController =
+      OtpTimerButtonController();
 
   @override
   void initState() {
@@ -113,14 +121,20 @@ class _OtpCodeScreenState extends State<OtpCodeScreen> {
                   padding: const EdgeInsets.only(right: 15.0),
                   child: Align(
                     alignment: alignment,
-                    child: InkWell(
-                      onTap: () {
-                        // todo: resend code functionality
+                    child: Consumer<OtpAuthViewModel>(
+                      builder: (context, value, child) {
+                        return OtpTimerButton(
+                            controller: _otpTimerBtnController,
+                            onPressed: () {
+                              value.verifyPhoneNumber(
+                                  widget.countryCode + widget.phoneNumber);
+                              _otpTimerBtnController.startTimer();
+                            },
+                            text: const Text("Resend Code"),
+                            backgroundColor: Colors.orange,
+                            textColor: Colors.white,
+                            duration: 20);
                       },
-                      child: const Text(
-                        "Resend Code",
-                        style: TextStyle(fontSize: 16, color: Colors.green),
-                      ),
                     ),
                   ),
                 ),
@@ -141,15 +155,25 @@ class _OtpCodeScreenState extends State<OtpCodeScreen> {
                 log(_otpController.text);
                 if (userCredential != null) {
                   // todo: find an alternative to scaffold messenger
-                  ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text("otp auth success")));
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      backgroundColor: Colors.orange,
+                      content: Text("otp verification success")));
                   Navigator.push(
-                      (context),
-                      MaterialPageRoute(
-                          builder: (context) => const HomeScreen()));
+                    (context),
+                    MaterialPageRoute(
+                      builder: (context) => const HomeScreen(),
+                    ),
+                  );
                 } else {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text("otp auth failed")));
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      backgroundColor: Colors.orange,
+                      content: Text("otp verification failed")));
+                  Navigator.push(
+                    (context),
+                    MaterialPageRoute(
+                      builder: (context) => GetStarted(),
+                    ),
+                  );
                 }
               },
               backgroundColor: Colors.orange,

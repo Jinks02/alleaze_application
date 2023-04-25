@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -20,7 +21,7 @@ class AuthServiceImpl extends AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final User? currentUser = FirebaseAuth.instance.currentUser;
   final GoogleSignIn _googleSignIn = GoogleSignIn();
-
+  int? _resendToken;
   @override
   Future<UserCredential?> signUp(
       String email, String password, String name) async {
@@ -104,12 +105,16 @@ class AuthServiceImpl extends AuthService {
       verificationCompleted: (PhoneAuthCredential credential) async {
         await _auth.signInWithCredential(credential);
       },
+      timeout: const Duration(seconds: 20),
       verificationFailed: (FirebaseAuthException e) {
         print(e.message);
       },
       codeSent: (String id, int? resendToken) {
         completer.complete(id);
+        _resendToken = resendToken;
+        log("code sent block called");
       },
+      forceResendingToken: _resendToken,
       codeAutoRetrievalTimeout: (String id) {
         print("code time out");
       },

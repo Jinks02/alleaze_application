@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:provider/provider.dart';
@@ -79,10 +81,14 @@ class _OtpPhoneNumberViewState extends State<OtpPhoneNumberView> {
               onPressed: () async {
                 verificationId = (await value.verifyPhoneNumber(
                     countryCode + _phoneNumberController.text))!;
+                log(countryCode + _phoneNumberController.text);
                 if (value.isLoading == false) {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => const OtpCodeScreen(),
+                      builder: (context) => OtpCodeScreen(
+                        countryCode: countryCode,
+                        phoneNumber: _phoneNumberController.text,
+                      ),
                     ),
                   );
                 }

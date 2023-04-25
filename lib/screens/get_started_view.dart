@@ -135,10 +135,12 @@ class GetStarted extends StatelessWidget {
                                                           content: Text(
                                                               "google sign in success")));
                                                   Navigator.push(
-                                                      (context),
-                                                      MaterialPageRoute(
-                                                          builder: (context) =>
-                                                              const HomeScreen()));
+                                                    (context),
+                                                    MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          const HomeScreen(),
+                                                    ),
+                                                  );
                                                 } else {
                                                   ScaffoldMessenger.of(context)
                                                       .showSnackBar(const SnackBar(
