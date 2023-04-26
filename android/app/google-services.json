@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "485367620180-kdq8a66g8qt78sdmq6esisp2u4dkvvil.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.alleaze_application",
+            "certificate_hash": "62e34013924772db7a570232b074efe8c52948b1"
+          }
+        },
+        {
           "client_id": "485367620180-7nm5rlgegpkhvbqpi49i93knfriub60i.apps.googleusercontent.com",
           "client_type": 3
         }
