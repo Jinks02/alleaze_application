@@ -44,25 +44,33 @@ class _HomeScreenState extends State<HomeScreen> {
     return WillPopScope(
       onWillPop: _onWillPop,
       child: Scaffold(
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Icon(
-                Icons.warning_amber_rounded,
-                color: Colors.orangeAccent,
-                size: 80,
-              ),
-              Padding(
-                padding: EdgeInsets.only(top: 8),
-                child: Text(
-                  'Press again to exit',
-                  style: TextStyle(fontSize: 16),
-                ),
-              )
-            ],
-          ),
-        ),
+        body: FutureBuilder(
+            future: Future.delayed(const Duration(milliseconds: 2500)),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.done) {
+                return Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Icon(
+                        Icons.warning_amber_rounded,
+                        color: Colors.orangeAccent,
+                        size: 80,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 8),
+                        child: Text(
+                          'Press again to exit',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      )
+                    ],
+                  ),
+                );
+              } else {
+                return Container();
+              }
+            }),
       ),
     );
   }
