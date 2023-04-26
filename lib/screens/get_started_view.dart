@@ -140,6 +140,7 @@ class GetStarted extends StatelessWidget {
                                                       MaterialPageRoute(
                                                           builder: (context) =>
                                                               HomeScreen()));
+
                                                 } else {
                                                   ScaffoldMessenger.of(context)
                                                       .showSnackBar(const SnackBar(
