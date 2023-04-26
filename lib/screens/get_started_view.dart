@@ -26,22 +26,25 @@ class GetStarted extends StatelessWidget {
                 children: [
                   Container(
                     child: const Text(
-                      "Skip the queue, pay with ease!",
+                      "Get Started with Edukag",
                       style: TextStyle(
                           fontSize: 21,
                           fontWeight: FontWeight.bold,
                           color: Colors.black),
                     ),
                   ),
-                  Container(
-                    margin: const EdgeInsets.only(bottom: 50, top: 30),
-                    child: const Text(
-                      "Ger your groceries in as fast as one hour",
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.grey),
-                    ),
+                  // Container(
+                  //   margin: const EdgeInsets.only(bottom: 50, top: 30),
+                  //   child: const Text(
+                  //     "Ger your groceries in as fast as one hour",
+                  //     style: TextStyle(
+                  //         fontSize: 16,
+                  //         fontWeight: FontWeight.bold,
+                  //         color: Colors.grey),
+                  //   ),
+                  // ),
+                  SizedBox(
+                    height: 60,
                   ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
