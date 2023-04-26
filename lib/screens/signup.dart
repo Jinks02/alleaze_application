@@ -1,12 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 
 import '../view_models/sign_up_view_model.dart';
-import 'home_view.dart';
 import 'get_started_view.dart';
+import 'home_view.dart';
 import 'login.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -73,34 +72,34 @@ class _SignUpPageState extends State<SignUpPage> {
                     style: TextStyle(fontSize: 15, color: Colors.grey),
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
-                const Text(
-                  "Name",
-                  style: TextStyle(
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.grey,
-                  ),
-                ),
-                TextFormField(
-                  controller: _usernameController,
-                  keyboardType: TextInputType.name,
-                  decoration:
-                      const InputDecoration(hintText: "Enter your name"),
-                  validator: (value) {
-                    if (value!.isEmpty) {
-                      return "Please enter your name";
-                    }
-                    return null;
-                  },
-                  onSaved: (value) {
-                    if (value!.isNotEmpty) {
-                      _usernameController.text = value;
-                    }
-                  },
-                ),
+                // const SizedBox(
+                //   height: 10,
+                // ),
+                // const Text(
+                //   "Name",
+                //   style: TextStyle(
+                //     fontSize: 16.0,
+                //     fontWeight: FontWeight.bold,
+                //     color: Colors.grey,
+                //   ),
+                // ),
+                // TextFormField(
+                //   controller: _usernameController,
+                //   keyboardType: TextInputType.name,
+                //   decoration:
+                //       const InputDecoration(hintText: "Enter your name"),
+                //   validator: (value) {
+                //     if (value!.isEmpty) {
+                //       return "Please enter your name";
+                //     }
+                //     return null;
+                //   },
+                //   onSaved: (value) {
+                //     if (value!.isNotEmpty) {
+                //       _usernameController.text = value;
+                //     }
+                //   },
+                // ),
                 const SizedBox(height: 20.0),
                 const Text(
                   "Email",
@@ -225,9 +224,7 @@ class _SignUpPageState extends State<SignUpPage> {
                               Navigator.push(
                                   (context),
                                   MaterialPageRoute(
-                                      builder: (context) =>
-                                          HomeScreen()));
-
+                                      builder: (context) => HomeScreen()));
                             } else {
                               ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(
