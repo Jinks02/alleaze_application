@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "485367620180",
+    "project_id": "edukag-ce395",
+    "storage_bucket": "edukag-ce395.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:485367620180:android:a9e3b8b875b8e828a9c3c1",
+        "android_client_info": {
+          "package_name": "com.example.alleaze_application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "485367620180-7nm5rlgegpkhvbqpi49i93knfriub60i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7CliQMBmoBkSiCeTnCS5qfkz3VSTzMCM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "485367620180-7nm5rlgegpkhvbqpi49i93knfriub60i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
