@@ -12,7 +12,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final HOME_URL = 'https://cred.club'; //"https://lms-demo.alleaze.in/";
+  final HOME_URL =
+      'https://lms-demo.alleaze.in/'; //"https://lms-demo.alleaze.in/";
 
   bool flag = false;
 
