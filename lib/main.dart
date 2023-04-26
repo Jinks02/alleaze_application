@@ -1,4 +1,6 @@
-import 'package:alleaze_application/screens/splash_view.dart';
+import 'package:edukag/screens/get_started_view.dart';
+import 'package:edukag/screens/home_view.dart';
+import 'package:edukag/screens/splash_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -14,11 +16,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: "Edukag",
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: SplashScreen(),
+          primarySwatch: Colors.deepOrange,
+          primaryColor: const Color.fromRGBO(255, 145, 77, 1),
+          fontFamily: "Nunito"),
+      initialRoute: '/splash',
+      routes: {
+        '/': (context) => SplashScreen(),
+        '/home-screen': (context) => HomeScreen(),
+        '/get-started': (context) => GetStarted(),
+        '/splash': (context) => SplashScreen(),
+      },
+      // home: SplashScreen(),
     );
   }
 }

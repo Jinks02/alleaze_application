@@ -1,4 +1,4 @@
-import 'package:alleaze_application/view_models/services/auth_service_impl.dart';
+import 'package:edukag/view_models/services/auth_service_impl.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';

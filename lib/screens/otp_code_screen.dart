@@ -1,12 +1,12 @@
 import 'dart:developer';
 
-import 'package:alleaze_application/screens/get_started_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:otp_timer_button/otp_timer_button.dart';
 import 'package:provider/provider.dart';
 
 import '../view_models/otp_auth_view_model.dart';
+import 'get_started_view.dart';
 import 'home_view.dart';
 
 class OtpCodeScreen extends StatefulWidget {
@@ -159,11 +159,8 @@ class _OtpCodeScreenState extends State<OtpCodeScreen> {
                   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                       backgroundColor: Colors.orange,
                       content: Text("otp verification success")));
-                  Navigator.push(
-                      (context),
-                      MaterialPageRoute(
-                          builder: (context) => HomeScreen()));
-
+                  Navigator.push((context),
+                      MaterialPageRoute(builder: (context) => HomeScreen()));
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                       backgroundColor: Colors.orange,

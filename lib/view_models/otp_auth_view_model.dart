@@ -1,7 +1,7 @@
 import 'dart:developer';
 
-import 'package:alleaze_application/view_models/services/auth_service.dart';
-import 'package:alleaze_application/view_models/services/auth_service_impl.dart';
+import 'package:edukag/view_models/services/auth_service.dart';
+import 'package:edukag/view_models/services/auth_service_impl.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 

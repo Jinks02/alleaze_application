@@ -1,4 +1,4 @@
-import 'package:alleaze_application/screens/signup.dart';
+import 'package:edukag/screens/signup.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -140,7 +140,6 @@ class GetStarted extends StatelessWidget {
                                                       MaterialPageRoute(
                                                           builder: (context) =>
                                                               HomeScreen()));
-
                                                 } else {
                                                   ScaffoldMessenger.of(context)
                                                       .showSnackBar(const SnackBar(
