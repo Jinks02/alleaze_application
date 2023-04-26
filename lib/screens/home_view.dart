@@ -1,9 +1,7 @@
 import 'dart:developer';
 import 'dart:io';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_custom_tabs/flutter_custom_tabs.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -56,9 +54,10 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               Padding(
                 padding: EdgeInsets.only(top: 8),
-                child: Text('Press again to exit',
-                style: TextStyle(
-                fontSize: 16),),
+                child: Text(
+                  'Press again to exit',
+                  style: TextStyle(fontSize: 16),
+                ),
               )
             ],
           ),
