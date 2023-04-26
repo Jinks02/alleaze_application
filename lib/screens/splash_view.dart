@@ -10,11 +10,22 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  late VideoPlayerController _controller;
+  bool _isVideoInitialized = false;
   final auth = FirebaseAuth.instance;
 
   @override
   void initState() {
     super.initState();
+    _controller =
+        VideoPlayerController.asset('assets/videos/splash_video_light.mp4')
+          ..initialize().then((_) {
+            setState(() {
+              _isVideoInitialized = true;
+            });
+            _controller.play();
+          });
+
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
     // Check if user has account
     bool hasAccount = checkIfUserHasAccount();
@@ -64,32 +75,32 @@ class _SplashScreenState extends State<SplashScreen> {
     }
   }
 
-  // void checkUserLogin() {
-  //   if (auth.currentUser == null) {
-  //     log("user does not exists");
-  //     _controller.addListener(() {
-  //       if (_controller.value.position == _controller.value.duration) {
-  //         Navigator.of(context).pushReplacement(
-  //           MaterialPageRoute(
-  //             builder: (BuildContext context) => HomeScreen(), //change to GetStarted() after testing
-  //           ),
-  //         );
-  //       }
-  //     });
-  //   } else {
-  //     log("user exists");
-  //     log(auth.currentUser?.email.toString() ?? "no email");
-  //     _controller.addListener(() {
-  //       if (_controller.value.position == _controller.value.duration) {
-  //         Navigator.of(context).pushReplacement(
-  //           MaterialPageRoute(
-  //             builder: (BuildContext context) => const HomeScreen(),
-  //           ),
-  //         );
-  //       }
-  //     });
-  //   }
-  // }
+  void checkUserLogin() {
+    if (auth.currentUser == null) {
+      log("user does not exists");
+      _controller.addListener(() {
+        if (_controller.value.position == _controller.value.duration) {
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(
+              builder: (BuildContext context) => GetStarted(), //change to GetStarted() after testing
+            ),
+          );
+        }
+      });
+    } else {
+      log("user exists");
+      log(auth.currentUser?.email.toString() ?? "no email");
+      _controller.addListener(() {
+        if (_controller.value.position == _controller.value.duration) {
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(
+              builder: (BuildContext context) => HomeScreen(),
+            ),
+          );
+        }
+      });
+    }
+  }
 
   // @override
   // void dispose() {
