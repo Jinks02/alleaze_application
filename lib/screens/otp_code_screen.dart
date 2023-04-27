@@ -58,6 +58,7 @@ class _OtpCodeScreenState extends State<OtpCodeScreen> {
           ),
           onPressed: () {
             // Add your onPressed handler here
+            Navigator.pop(context);
           },
         ),
       ),
