@@ -1,11 +1,8 @@
 import 'dart:developer';
-import '/screens/get_started_view.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:video_player/video_player.dart';
-
-import 'home_view.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
