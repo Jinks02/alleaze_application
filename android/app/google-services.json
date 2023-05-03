@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:485367620180:android:a9e3b8b875b8e828a9c3c1",
         "android_client_info": {
-          "package_name": "com.example.alleaze_application"
+          "package_name": "com.Alleazetech.edukag"
         }
       },
       "oauth_client": [
@@ -17,7 +17,7 @@
           "client_id": "485367620180-kdq8a66g8qt78sdmq6esisp2u4dkvvil.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.alleaze_application",
+            "package_name": "com.Alleazetech.edukag",
             "certificate_hash": "62e34013924772db7a570232b074efe8c52948b1"
           }
         },
