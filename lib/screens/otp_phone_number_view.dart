@@ -31,19 +31,19 @@ class _OtpPhoneNumberViewState extends State<OtpPhoneNumberView> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const SizedBox(height: 30.0),
-            Stack(
-              children: [
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Image.asset('assets/images/phone_left.png'),
-                ),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: Image.asset('assets/images/phone_right.png'),
-                )
-              ],
-            ),
+            SizedBox(height: MediaQuery.of(context).size.height / 10),
+            // Stack(
+            //   children: [
+            //     Align(
+            //       alignment: Alignment.centerLeft,
+            //       child: Image.asset('assets/images/phone_left.png'),
+            //     ),
+            //     Align(
+            //       alignment: Alignment.centerRight,
+            //       child: Image.asset('assets/images/phone_right.png'),
+            //     )
+            //   ],
+            // ),
             const Text(
               "Enter your Phone Number",
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
