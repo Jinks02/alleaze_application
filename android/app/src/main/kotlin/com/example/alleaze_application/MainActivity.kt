@@ -1,4 +1,4 @@
-package com.example.alleaze_application
+package com.Alleazetech.edukag
 
 import io.flutter.embedding.android.FlutterActivity
 
